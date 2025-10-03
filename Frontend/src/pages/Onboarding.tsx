@@ -152,7 +152,7 @@ export default function Onboarding() {
    *     4. Press ESC to release pointer lock and stop looking around.
    * - Kepler viewer uses orbit controls for rotate/zoom and includes a short info panel.
    */
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [currentStep, setCurrentStep] = useState(0);
   const [completedSteps, setCompletedSteps] = useState<number[]>([]);
   const [isTraining, setIsTraining] = useState(false);
@@ -338,7 +338,10 @@ export default function Onboarding() {
     document.addEventListener("pointerlockerror", handlePointerLockChange);
 
     return () => {
-      document.removeEventListener("pointerlockchange", handlePointerLockChange);
+      document.removeEventListener(
+        "pointerlockchange",
+        handlePointerLockChange
+      );
       document.removeEventListener("pointerlockerror", handlePointerLockChange);
     };
   }, []);
@@ -393,7 +396,10 @@ export default function Onboarding() {
                 {t("onboarding.welcome.heading", "Guided Onboarding")}
               </h1>
               <p className="text-base md:text-lg text-foreground/80 max-w-2xl mx-auto">
-                {t("onboarding.welcome.subtitle", "Explore the Kepler and Exo models interactively.")}
+                {t(
+                  "onboarding.welcome.subtitle",
+                  "Explore the Kepler and Exo models interactively."
+                )}
               </p>
             </div>
 
@@ -442,25 +448,48 @@ export default function Onboarding() {
 
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                   <div className="space-y-2">
-                    <h1
-                      className="text-3xl md:text-4xl font-extrabold tracking-tight bg-clip-text text-transparent"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(90deg, #06b6d4, rgba(255,255,255,0.5))",
-                      }}
-                    >
-                      {t("onboarding.banner.title", "Step Into Our 3D Universe")}
-                    </h1>
+                    <div className="flex items-center gap-3">
+                      <h1
+                        className="text-3xl md:text-4xl font-extrabold tracking-tight bg-clip-text text-transparent"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(90deg, #06b6d4, rgba(255,255,255,0.5))",
+                        }}
+                      >
+                        {t(
+                          "onboarding.banner.title",
+                          "Step Into Our 3D Universe"
+                        )}
+                      </h1>
+                      {/* Dev-only: show active i18n language to help debug missing translations */}
+                      {process.env.NODE_ENV === "development" && (
+                        <span className="text-sm text-white/60">
+                          lang: {i18n.language}
+                        </span>
+                      )}
+                    </div>
                     <p className="text-sm text-white/80 max-w-2xl">
                       {t(
                         "onboarding.banner.description",
-                        "Fly around exoplanets, discover alien worlds, and uncover hidden patterns — a playful, gamified experience that makes exploring astronomy and ML data feel like an adventure. Click \"Enter Free Move\" to pilot the camera yourself and roam the system."
+                        'Fly around exoplanets, discover alien worlds, and uncover hidden patterns — a playful, gamified experience that makes exploring astronomy and ML data feel like an adventure. Click "Enter Free Move" to pilot the camera yourself and roam the system.'
                       )}
                     </p>
                     <div className="mt-3 flex items-center gap-2">
-                      <Badge variant="secondary">{t("onboarding.banner.badges.interactive", "Interactive")}</Badge>
-                      <Badge variant="outline">{t("onboarding.banner.badges.immersive", "Immersive")}</Badge>
-                      <Badge variant="outline">{t("onboarding.banner.badges.learnByPlaying", "Learn-by-Playing")}</Badge>
+                      <Badge variant="secondary">
+                        {t(
+                          "onboarding.banner.badges.interactive",
+                          "Interactive"
+                        )}
+                      </Badge>
+                      <Badge variant="outline">
+                        {t("onboarding.banner.badges.immersive", "Immersive")}
+                      </Badge>
+                      <Badge variant="outline">
+                        {t(
+                          "onboarding.banner.badges.learnByPlaying",
+                          "Learn-by-Playing"
+                        )}
+                      </Badge>
                     </div>
                   </div>
 
@@ -471,7 +500,10 @@ export default function Onboarding() {
                     >
                       {freeMove
                         ? t("onboarding.banner.exitFreeMove", "Exit Free Move")
-                        : t("onboarding.banner.enterFreeMove", "Enter Free Move")}
+                        : t(
+                            "onboarding.banner.enterFreeMove",
+                            "Enter Free Move"
+                          )}
                     </Button>
                     <Button
                       variant="outline"
@@ -543,7 +575,9 @@ export default function Onboarding() {
                     <div
                       onClick={() => {
                         // Try to request pointer lock on the canvas inside this exoRef
-                        const canvas = exoRef.current?.querySelector("canvas") as HTMLCanvasElement | null;
+                        const canvas = exoRef.current?.querySelector(
+                          "canvas"
+                        ) as HTMLCanvasElement | null;
                         if (canvas && canvas.requestPointerLock) {
                           canvas.requestPointerLock();
                         }
@@ -551,8 +585,16 @@ export default function Onboarding() {
                       className="absolute inset-0 z-40 flex items-center justify-center cursor-pointer"
                     >
                       <div className="bg-black/60 rounded-md px-4 py-2 text-center text-white">
-                        {t("onboarding.banner.clickToStart", "Click on the screen to start")}
-                        <div className="text-xs text-white/70 mt-1">{t("onboarding.banner.pressEscToExit", "Press ESC to exit")}</div>
+                        {t(
+                          "onboarding.banner.clickToStart",
+                          "Click on the screen to start"
+                        )}
+                        <div className="text-xs text-white/70 mt-1">
+                          {t(
+                            "onboarding.banner.pressEscToExit",
+                            "Press ESC to exit"
+                          )}
+                        </div>
                       </div>
                     </div>
                   )}
@@ -595,11 +637,16 @@ export default function Onboarding() {
                   <div className="flex items-start justify-between">
                     <div>
                       <div className="text-lg font-semibold">
-                        {t("onboarding.kepler.title", "🌍 Exoplanet: Kepler-186f")}
+                        {t(
+                          "onboarding.kepler.title",
+                          "🌍 Exoplanet: Kepler-186f"
+                        )}
                       </div>
                       <div className="text-sm text-muted-foreground mt-1">
                         {t("onboarding.kepler.planetTypeLabel", "Planet Type:")}{" "}
-                        <span className="font-medium">{t("onboarding.kepler.planetType", "Super Earth")}</span>
+                        <span className="font-medium">
+                          {t("onboarding.kepler.planetType", "Super Earth")}
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -607,30 +654,57 @@ export default function Onboarding() {
                   <div className="mt-3 grid grid-cols-2 gap-2 text-sm">
                     <div>
                       <div className="text-xs text-muted-foreground">
-                        {t("onboarding.kepler.distanceLabel", "Distance from Earth")}
+                        {t(
+                          "onboarding.kepler.distanceLabel",
+                          "Distance from Earth"
+                        )}
                       </div>
-                      <div className="font-medium">{t("onboarding.kepler.distanceValue", "~579 light years")}</div>
+                      <div className="font-medium">
+                        {t(
+                          "onboarding.kepler.distanceValue",
+                          "~579 light years"
+                        )}
+                      </div>
                     </div>
                     <div>
                       <div className="text-xs text-muted-foreground">
                         {t("onboarding.kepler.textureLabel", "Texture Size")}
                       </div>
-                      <div className="font-medium">{t("onboarding.kepler.textureValue", "512×512 (optimized)")}</div>
+                      <div className="font-medium">
+                        {t(
+                          "onboarding.kepler.textureValue",
+                          "512×512 (optimized)"
+                        )}
+                      </div>
                     </div>
                     <div>
                       <div className="text-xs text-muted-foreground">
                         {t("onboarding.kepler.verticesLabel", "Vertices Count")}
                       </div>
-                      <div className="font-medium">{t("onboarding.kepler.verticesValue", "304 (low-poly)")}</div>
+                      <div className="font-medium">
+                        {t("onboarding.kepler.verticesValue", "304 (low-poly)")}
+                      </div>
                     </div>
                     <div>
-                      <div className="text-xs text-muted-foreground">{t("onboarding.kepler.meshLabel", "Mesh")}</div>
-                      <div className="font-medium">{t("onboarding.kepler.meshValue", "Performance-focused")}</div>
+                      <div className="text-xs text-muted-foreground">
+                        {t("onboarding.kepler.meshLabel", "Mesh")}
+                      </div>
+                      <div className="font-medium">
+                        {t(
+                          "onboarding.kepler.meshValue",
+                          "Performance-focused"
+                        )}
+                      </div>
                     </div>
                   </div>
 
                   <div className="mt-3 text-sm text-white/85">
-                    <div className="font-semibold">{t("onboarding.kepler.aboutTitle", "🪐 About Kepler-186f")}</div>
+                    <div className="font-semibold">
+                      {t(
+                        "onboarding.kepler.aboutTitle",
+                        "🪐 About Kepler-186f"
+                      )}
+                    </div>
                     <p className="mt-1 text-xs text-white/80">
                       {t(
                         "onboarding.kepler.paragraph1",
@@ -659,7 +733,10 @@ export default function Onboarding() {
                   className="mx-auto max-w-5xl mt-6 p-6 rounded-lg bg-background/6 border text-white/90 text-left"
                 >
                   <h3 className="text-lg font-semibold">
-                    {t("onboarding.userGuide.title", "🌌 3D Universe – User Guide")}
+                    {t(
+                      "onboarding.userGuide.title",
+                      "🌌 3D Universe – User Guide"
+                    )}
                   </h3>
                   <p className="mt-2 text-sm text-white/80">
                     {t(
@@ -669,22 +746,43 @@ export default function Onboarding() {
                   </p>
 
                   <div className="mt-4">
-                    <div className="font-semibold">{t("onboarding.userGuide.basicControls", "🖱 Basic Controls")}</div>
+                    <div className="font-semibold">
+                      {t(
+                        "onboarding.userGuide.basicControls",
+                        "🖱 Basic Controls"
+                      )}
+                    </div>
                     <div className="mt-2 text-sm">
                       <div className="font-semibold">Orbit Mode (default):</div>
                       <ul className="list-disc ml-5 mt-1 text-xs text-white/80">
                         <li>
-                          {t("onboarding.userGuide.controls.leftMouse", "Left Mouse Button (Drag): Rotate around the universe")}
+                          {t(
+                            "onboarding.userGuide.controls.leftMouse",
+                            "Left Mouse Button (Drag): Rotate around the universe"
+                          )}
                         </li>
-                        <li>{t("onboarding.userGuide.controls.rightMouse", "Right Mouse Button (Drag): Pan the camera view")}</li>
-                        <li>{t("onboarding.userGuide.controls.scroll", "Scroll Wheel: Zoom in and out smoothly")}</li>
+                        <li>
+                          {t(
+                            "onboarding.userGuide.controls.rightMouse",
+                            "Right Mouse Button (Drag): Pan the camera view"
+                          )}
+                        </li>
+                        <li>
+                          {t(
+                            "onboarding.userGuide.controls.scroll",
+                            "Scroll Wheel: Zoom in and out smoothly"
+                          )}
+                        </li>
                       </ul>
                     </div>
                   </div>
 
                   <div className="mt-4">
                     <div className="font-semibold">
-                      {t("onboarding.userGuide.freeMoveTitle", "🎮 Free Move Mode (Exoplanet Universe Only)")}
+                      {t(
+                        "onboarding.userGuide.freeMoveTitle",
+                        "🎮 Free Move Mode (Exoplanet Universe Only)"
+                      )}
                     </div>
                     <div className="mt-2 text-sm text-white/80">
                       {t(
@@ -694,7 +792,10 @@ export default function Onboarding() {
                     </div>
                     <div className="mt-2 text-sm">
                       <div className="font-semibold">
-                        {t("onboarding.userGuide.enableDisable", "Enable / Disable Free Move Mode:")}
+                        {t(
+                          "onboarding.userGuide.enableDisable",
+                          "Enable / Disable Free Move Mode:"
+                        )}
                       </div>
                       <div className="text-xs text-white/80">
                         {t(
@@ -705,7 +806,12 @@ export default function Onboarding() {
                     </div>
 
                     <div className="mt-2 text-sm">
-                      <div className="font-semibold">{t("onboarding.userGuide.movementKeys", "Movement Keys:")}</div>
+                      <div className="font-semibold">
+                        {t(
+                          "onboarding.userGuide.movementKeys",
+                          "Movement Keys:"
+                        )}
+                      </div>
                       <div className="text-xs text-white/80">
                         {t(
                           "onboarding.userGuide.movementKeysList",
@@ -715,32 +821,59 @@ export default function Onboarding() {
                     </div>
 
                     <div className="mt-2 text-sm">
-                      <div className="font-semibold">{t("onboarding.userGuide.mouseMovement", "Mouse Movement:")}</div>
+                      <div className="font-semibold">
+                        {t(
+                          "onboarding.userGuide.mouseMovement",
+                          "Mouse Movement:"
+                        )}
+                      </div>
                       <div className="text-xs text-white/80">
-                        Look around in any direction while moving. This mode
-                        lets you walk or fly through space and get up close to
-                        different exoplanets.
+                        {t(
+                          "onboarding.userGuide.mouseMovementParagraph",
+                          "Look around in any direction while moving. This mode lets you walk or fly through space and get up close to different exoplanets."
+                        )}
                       </div>
                     </div>
                   </div>
 
                   <div className="mt-4">
-                    <div className="font-semibold">{t("onboarding.userGuide.exploringExoplanets", "🌍 Exploring Exoplanets")}</div>
+                    <div className="font-semibold">
+                      {t(
+                        "onboarding.userGuide.exploringExoplanets",
+                        "🌍 Exploring Exoplanets"
+                      )}
+                    </div>
                     <div className="mt-2 text-xs text-white/80">
-                      Each exoplanet model is labeled with its name. You can
-                      zoom in closely to inspect the surface. In Free Move Mode,
-                      fly between planets and explore them from any angle.
-                      Additional info panels (like planet type, distance from
-                      Earth, etc.) can be displayed alongside models.
+                      {t(
+                        "onboarding.userGuide.exploringExoplanetsParagraph",
+                        "Each exoplanet model is labeled with its name. You can zoom in closely to inspect the surface. In Free Move Mode, fly between planets and explore them from any angle. Additional info panels (like planet type, distance from Earth, etc.) can be displayed alongside models."
+                      )}
                     </div>
                   </div>
 
                   <div className="mt-4">
-                    <div className="font-semibold">{t("onboarding.userGuide.tips", "⚡ Tips")}</div>
+                    <div className="font-semibold">
+                      {t("onboarding.userGuide.tips.title", "⚡ Tips")}
+                    </div>
                     <ul className="list-disc ml-5 mt-1 text-xs text-white/80">
-                      <li>{t("onboarding.userGuide.tips.startInOrbit", "Start in Orbit Mode to get a full overview.")}</li>
-                      <li>{t("onboarding.userGuide.tips.useFreeMove", "Use Free Move Mode to dive deeper into individual planets.")}</li>
-                      <li>{t("onboarding.userGuide.tips.viewFullscreen", "For best experience, view in fullscreen and on a desktop.")}</li>
+                      <li>
+                        {t(
+                          "onboarding.userGuide.tips.startInOrbit",
+                          "Start in Orbit Mode to get a full overview."
+                        )}
+                      </li>
+                      <li>
+                        {t(
+                          "onboarding.userGuide.tips.useFreeMove",
+                          "Use Free Move Mode to dive deeper into individual planets."
+                        )}
+                      </li>
+                      <li>
+                        {t(
+                          "onboarding.userGuide.tips.viewFullscreen",
+                          "For best experience, view in fullscreen and on a desktop."
+                        )}
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -780,19 +913,30 @@ export default function Onboarding() {
                   <CardContent>
                     <div className="space-y-2 text-sm">
                       <div className="flex justify-between">
-                        <span>{t("onboarding.upload.samplesLabel", "Samples:")}</span>
+                        <span>
+                          {t("onboarding.upload.samplesLabel", "Samples:")}
+                        </span>
                         <span className="font-medium">{dataset.size}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span>{t("onboarding.upload.featuresLabel", "Features:")}</span>
+                        <span>
+                          {t("onboarding.upload.featuresLabel", "Features:")}
+                        </span>
                         <span className="font-medium">{dataset.features}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span>{t("onboarding.upload.targetLabel", "Target:")}</span>
+                        <span>
+                          {t("onboarding.upload.targetLabel", "Target:")}
+                        </span>
                         <span className="font-medium">{dataset.target}</span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span>{t("onboarding.upload.difficultyLabel", "Difficulty:")}</span>
+                        <span>
+                          {t(
+                            "onboarding.upload.difficultyLabel",
+                            "Difficulty:"
+                          )}
+                        </span>
                         <Badge
                           variant={
                             dataset.difficulty === "Beginner"
@@ -1065,7 +1209,9 @@ export default function Onboarding() {
           <p className="text-foreground/70 mt-2">{t("onboarding.subtitle")}</p>
           <div className="mt-4 flex items-center justify-center gap-2 text-xs text-muted-foreground">
             <Badge variant="outline">
-              {t("onboarding.buttons.previous", { defaultValue: `Step ${currentStep + 1} of ${STEPS.length}` })}
+              {t("onboarding.buttons.previous", {
+                defaultValue: `Step ${currentStep + 1} of ${STEPS.length}`,
+              })}
             </Badge>
             <span>•</span>
             <span>{Math.round(progress)}% Complete</span>
@@ -1077,7 +1223,10 @@ export default function Onboarding() {
           <div className="flex flex-col items-center gap-4">
             <div className="flex flex-wrap items-center justify-center gap-6">
               {STEPS.map((step, index) => (
-                <div key={step.id} className="flex flex-col items-center text-center">
+                <div
+                  key={step.id}
+                  className="flex flex-col items-center text-center"
+                >
                   <div
                     className={`
                       flex items-center justify-center w-12 h-12 rounded-full border-2 transition-colors mb-2

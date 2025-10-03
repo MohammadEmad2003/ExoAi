@@ -64,10 +64,10 @@ export function Navigation() {
             </div>
             <div>
               <h1 className="text-xl font-bold text-gradient-stellar">
-                {t('branding.name', 'Cosmic Analysts ExoAI')}
+                {t("branding.name", "Cosmic Analysts ExoAI")}
               </h1>
               <p className="text-xs text-muted-foreground hidden sm:block">
-                {t('branding.tagline', 'NASA Challenge 2025')}
+                {t("branding.tagline", "NASA Challenge 2025")}
               </p>
             </div>
           </div>

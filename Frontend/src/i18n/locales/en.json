@@ -106,6 +106,8 @@
       "movementKeysList": "W / ↑ Arrow: Move Forward · S / ↓ Arrow: Move Backward · A / ← Arrow: Move Left · D / → Arrow: Move Right",
       "mouseMovement": "Mouse Movement:",
       "exploringExoplanets": "🌍 Exploring Exoplanets",
+      "exploringExoplanetsParagraph": "Each exoplanet model is labeled with its name. You can zoom in closely to inspect the surface. In Free Move Mode, fly between planets and explore them from any angle. Additional info panels (like planet type, distance from Earth, etc.) can be displayed alongside models.",
+      "mouseMovementParagraph": "Look around in any direction while moving. This mode lets you walk or fly through space and get up close to different exoplanets.",
       "tips": {
         "title": "⚡ Tips",
         "startInOrbit": "Start in Orbit Mode to get a full overview.",
@@ -113,7 +115,7 @@
         "viewFullscreen": "For best experience, view in fullscreen and on a desktop."
       }
     },
-  "features": {
+    "features": {
       "learnByDoing": {
         "title": "Learn by Doing",
         "description": "Interactive tutorials guide you through each step"
@@ -394,9 +396,10 @@
     }
   },
   "chat": {
-    "title": "AI Assistant",
-    "welcomeMessage": "Hello! I'm your AI assistant for data analysis and machine learning.",
-    "helpText": "Ask me about your datasets, model training, or any ML questions.",
+    "title": "Kepli — The Quantum Explorer",
+    "welcomeMessage": "Hello — I'm Kepli, the Quantum Explorer. I can help you analyze datasets, guide training, and explore exoplanet science.",
+    "helpText": "Ask Kepli about your datasets, model training, or any ML questions.",
+    "assistantIntro": "I am Kepli, the Quantum Explorer.",
     "inputPlaceholder": "Ask about your data or training...",
     "typing": "AI is thinking...",
     "clearHistory": "Clear chat",

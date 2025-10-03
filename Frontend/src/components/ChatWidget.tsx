@@ -78,6 +78,40 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
   maxHeight = "600px",
 }) => {
   const { t, i18n } = useTranslation();
+  const [kepliImageLoaded, setKepliImageLoaded] = useState(false);
+  const [kepliImgSrc, setKepliImgSrc] = useState<string | null>(null);
+
+  // Try a list of possible public paths until an image loads (helps with different dev setups)
+  useEffect(() => {
+    const candidates = [
+      "/Kepli.png",
+      "/Copilot_20251004_002122.png",
+      "/assets/Copilot_20251004_002122.png",
+      "/kepli.png",
+    ];
+
+    let mounted = true;
+
+    const testNext = (index: number) => {
+      if (!mounted || index >= candidates.length) return;
+      const img = new Image();
+      img.onload = () => {
+        if (!mounted) return;
+        setKepliImgSrc(candidates[index]);
+        setKepliImageLoaded(true);
+      };
+      img.onerror = () => {
+        testNext(index + 1);
+      };
+      img.src = candidates[index];
+    };
+
+    testNext(0);
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -133,12 +167,59 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
 
       const genAI = new GoogleGenerativeAI(apiKey);
       const model = genAI.getGenerativeModel({ model: modelName });
-      const result = await model.generateContent(userMessage.content);
-      const assistantText =
+      const kepliPrompt = `
+You are Kepli, an AI assistant inside an interactive 3D Universe app.
+Your purpose is to help users explore exoplanets and understand astronomy.
+You are also a study companion for learning machine learning applied to 
+exoplanet detection and classification. Always explain clearly, keep 
+answers inspiring and related to space science.
+
+User Question:
+${userMessage.content}
+`;
+
+      const result = await model.generateContent(kepliPrompt);
+
+      let assistantText =
         (result as any)?.response?.text?.() ||
         (isRTL
           ? "تعذر الحصول على استجابة من النموذج."
           : "Could not get a response from the model.");
+
+      // Remove common LLM self-identification lines to keep Kepli as the assistant
+      // e.g. "I do not have a name. I am a large language model..." or "I am a large language model trained by Google."
+      assistantText = assistantText
+        .split(/\n+/)
+        .filter((line: string) => {
+          const trimmed = line.trim();
+          if (!trimmed) return false;
+          const lower = trimmed.toLowerCase();
+          // common phrases we want to strip
+          const blacklist = [
+            "i do not have a name",
+            "i do not have a name.",
+            "i am a large language model",
+            "i am a large language model.",
+            "i am a large language model trained by google",
+            "i am a large language model trained by google.",
+            "i am a large language model trained by google.",
+            "i am a model trained by google",
+            "i am a model trained by google.",
+          ];
+
+          for (const phrase of blacklist) {
+            if (lower.includes(phrase)) return false;
+          }
+
+          // Arabic common patterns
+          if (lower.includes("لا أملك اسم")) return false;
+          if (lower.includes("نموذج لغة")) return false;
+
+          return true;
+        })
+        .join("\n");
+
+      // Add Kepli intro if the model returns a generic identity or doesn't mention Kepli
 
       const assistantMessage: ChatMessage = {
         id: `assistant-${Date.now()}`,
@@ -217,12 +298,19 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
       >
         <div className="flex-shrink-0">
           <div
-            className={`w-8 h-8 rounded-full flex items-center justify-center ${
+            className={`w-8 h-8 rounded-full flex items-center justify-center overflow-hidden ${
               isUser ? "bg-primary text-primary-foreground" : "bg-muted"
             }`}
           >
             {isUser ? (
               <User className="w-4 h-4" />
+            ) : kepliImageLoaded && kepliImgSrc ? (
+              <img
+                src={kepliImgSrc}
+                alt="Kepli"
+                className="w-8 h-8 object-cover"
+                onError={() => setKepliImageLoaded(false)}
+              />
             ) : (
               <Bot className="w-4 h-4" />
             )}
@@ -366,7 +454,16 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
         <CardHeader className="pb-3">
           <div className="flex items-center justify-between">
             <CardTitle className="text-lg flex items-center gap-2">
-              <Bot className="w-5 h-5" />
+              {kepliImageLoaded ? (
+                <img
+                  src={kepliImgSrc}
+                  alt="Kepli"
+                  className="w-5 h-5 rounded-full object-cover"
+                  onError={() => setKepliImageLoaded(false)}
+                />
+              ) : (
+                <Bot className="w-5 h-5" />
+              )}
               {t("chat.title")}
             </CardTitle>
             <div className="flex items-center gap-1">
@@ -410,7 +507,16 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({
           <ScrollArea className="h-96 px-4">
             {messages.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-full text-center text-muted-foreground">
-                <Bot className="w-12 h-12 mb-4 opacity-50" />
+                {kepliImageLoaded ? (
+                  <img
+                    src={kepliImgSrc}
+                    alt="Kepli"
+                    className="w-12 h-12 mb-4 rounded-full opacity-50 object-cover"
+                    onError={() => setKepliImageLoaded(false)}
+                  />
+                ) : (
+                  <Bot className="w-12 h-12 mb-4 opacity-50" />
+                )}
                 <p className="text-sm">{t("chat.welcomeMessage")}</p>
                 <p className="text-xs mt-2">{t("chat.helpText")}</p>
               </div>

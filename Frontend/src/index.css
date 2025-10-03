@@ -1,5 +1,5 @@
 /* Import RTL support styles */
-@import './styles/rtl.css';
+@import "./styles/rtl.css";
 
 @tailwind base;
 @tailwind components;
@@ -32,7 +32,7 @@ All colors MUST be HSL for consistency.
     /* Muted cosmic tones with better contrast */
     --muted: 220 35% 15%;
     --muted-foreground: 210 30% 70%;
-    
+
     /* High contrast text for light backgrounds */
     --foreground-emphasis: 220 40% 12%;
 
@@ -52,10 +52,28 @@ All colors MUST be HSL for consistency.
     --radius: 0.75rem;
 
     /* Enhanced cosmic gradients */
-    --gradient-cosmic: radial-gradient(ellipse at top, hsl(240 60% 8%) 0%, hsl(220 50% 4%) 50%, hsl(240 40% 2%) 100%);
-    --gradient-nebula: linear-gradient(45deg, hsl(270 100% 75%), hsl(280 100% 70%), hsl(195 100% 70%));
-    --gradient-stellar: linear-gradient(180deg, hsl(195 100% 70%), hsl(200 100% 75%));
-    --gradient-exoplanet: linear-gradient(135deg, hsl(25 100% 65%), hsl(35 100% 60%));
+    --gradient-cosmic: radial-gradient(
+      ellipse at top,
+      hsl(240 60% 8%) 0%,
+      hsl(220 50% 4%) 50%,
+      hsl(240 40% 2%) 100%
+    );
+    --gradient-nebula: linear-gradient(
+      45deg,
+      hsl(270 100% 75%),
+      hsl(280 100% 70%),
+      hsl(195 100% 70%)
+    );
+    --gradient-stellar: linear-gradient(
+      180deg,
+      hsl(195 100% 70%),
+      hsl(200 100% 75%)
+    );
+    --gradient-exoplanet: linear-gradient(
+      135deg,
+      hsl(25 100% 65%),
+      hsl(35 100% 60%)
+    );
 
     /* Enhanced shadows with cosmic glow */
     --shadow-stellar: 0 0 40px hsl(195 100% 70% / 0.4);
@@ -101,7 +119,8 @@ All colors MUST be HSL for consistency.
 
   /* Arabic RTL support */
   [dir="rtl"] body {
-    font-family: 'Noto Sans Arabic', 'Cairo', system-ui, -apple-system, sans-serif;
+    font-family: "Noto Sans Arabic", "Cairo", system-ui, -apple-system,
+      sans-serif;
   }
 
   /* Keep technical terms LTR in RTL context */
@@ -134,18 +153,37 @@ All colors MUST be HSL for consistency.
 
   /* Animated starfield background */
   body::before {
-    content: '';
+    content: "";
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: 
-      radial-gradient(2px 2px at 20px 30px, hsl(210 40% 98% / 0.8), transparent),
-      radial-gradient(2px 2px at 40px 70px, hsl(195 100% 70% / 0.6), transparent),
-      radial-gradient(1px 1px at 90px 40px, hsl(270 100% 75% / 0.5), transparent),
-      radial-gradient(1px 1px at 130px 80px, hsl(210 40% 98% / 0.7), transparent),
-      radial-gradient(2px 2px at 160px 30px, hsl(25 100% 65% / 0.4), transparent);
+    background-image: radial-gradient(
+        2px 2px at 20px 30px,
+        hsl(210 40% 98% / 0.8),
+        transparent
+      ),
+      radial-gradient(
+        2px 2px at 40px 70px,
+        hsl(195 100% 70% / 0.6),
+        transparent
+      ),
+      radial-gradient(
+        1px 1px at 90px 40px,
+        hsl(270 100% 75% / 0.5),
+        transparent
+      ),
+      radial-gradient(
+        1px 1px at 130px 80px,
+        hsl(210 40% 98% / 0.7),
+        transparent
+      ),
+      radial-gradient(
+        2px 2px at 160px 30px,
+        hsl(25 100% 65% / 0.4),
+        transparent
+      );
     background-repeat: repeat;
     background-size: 200px 100px;
     animation: twinkle 10s ease-in-out infinite alternate;
@@ -162,7 +200,7 @@ All colors MUST be HSL for consistency.
     box-shadow: var(--shadow-stellar);
     transition: var(--transition-cosmic);
   }
-  
+
   .btn-cosmic {
     @apply bg-secondary text-secondary-foreground hover:bg-secondary/90;
     background: var(--gradient-nebula);
@@ -255,7 +293,7 @@ All colors MUST be HSL for consistency.
   }
 
   .nav-link::after {
-    content: '';
+    content: "";
     @apply absolute bottom-0 left-1/2 w-0 h-0.5 bg-primary;
     @apply transition-all duration-300;
     transform: translateX(-50%);
@@ -285,56 +323,78 @@ All colors MUST be HSL for consistency.
 
   /* Cosmic keyframes */
   @keyframes stellar-pulse {
-    0%, 100% { 
+    0%,
+    100% {
       opacity: 1;
       transform: scale(1);
     }
-    50% { 
+    50% {
       opacity: 0.8;
       transform: scale(1.02);
     }
   }
 
   @keyframes cosmic-float {
-    0%, 100% { 
+    0%,
+    100% {
       transform: translateY(0px) rotate(0deg);
     }
-    50% { 
+    50% {
       transform: translateY(-10px) rotate(5deg);
     }
   }
 
   @keyframes nebula-glow {
-    0% { 
+    0% {
       filter: drop-shadow(0 0 5px hsl(270 100% 75% / 0.3));
     }
-    100% { 
+    100% {
       filter: drop-shadow(0 0 20px hsl(270 100% 75% / 0.6));
     }
   }
 
   @keyframes twinkle {
-    0% { opacity: 0.3; }
-    100% { opacity: 1; }
+    0% {
+      opacity: 0.3;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 
   @keyframes orbit-1 {
-    0% { transform: rotate(0deg) translateX(80px) rotate(0deg); }
-    100% { transform: rotate(360deg) translateX(80px) rotate(-360deg); }
+    0% {
+      transform: rotate(0deg) translateX(80px) rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg) translateX(80px) rotate(-360deg);
+    }
   }
 
   @keyframes orbit-2 {
-    0% { transform: rotate(0deg) translateX(120px) rotate(0deg); }
-    100% { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+    0% {
+      transform: rotate(0deg) translateX(120px) rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg) translateX(120px) rotate(-360deg);
+    }
   }
 
   @keyframes orbit-3 {
-    0% { transform: rotate(0deg) translateX(60px) rotate(0deg); }
-    100% { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
+    0% {
+      transform: rotate(0deg) translateX(60px) rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg) translateX(60px) rotate(-360deg);
+    }
   }
 
   @keyframes orbit-4 {
-    0% { transform: rotate(0deg) translateX(100px) rotate(0deg); }
-    100% { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+    0% {
+      transform: rotate(0deg) translateX(100px) rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg) translateX(100px) rotate(-360deg);
+    }
   }
 }

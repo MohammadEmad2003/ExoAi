@@ -1,0 +1,221 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "guidedMode": "Modo Guiado",
+    "researchHub": "Centro de Investigación",
+    "challenge": "Desafío",
+    "approach": "Enfoque",
+    "demo": "Demo",
+    "quantum": "Computación Cuántica",
+    "adversarial": "ML Adversarial",
+    "visualizations": "Visualizaciones",
+    "team": "Equipo",
+    "resources": "Recursos"
+  },
+  "onboarding": {
+    "title": "Bienvenido a Cosmic Analysts ExoAI",
+    "subtitle": "Tu viaje guiado hacia el aprendizaje automático avanzado",
+    "steps": {
+      "welcome": {
+        "title": "Bienvenido a Cosmic Analysts ExoAI",
+        "description": "Experimenta el poder del aprendizaje automático avanzado con nuestra plataforma guiada"
+      },
+      "upload": {
+        "title": "Sube Tus Datos",
+        "description": "Comienza subiendo tu conjunto de datos para análisis"
+      },
+      "configure": {
+        "title": "Configurar Entrenamiento",
+        "description": "Ajusta los parámetros del modelo con recomendaciones guiadas"
+      },
+      "train": {
+        "title": "Entrena Tu Modelo",
+        "description": "Observa cómo tu modelo aprende de los datos"
+      },
+      "evaluate": {
+        "title": "Evaluar Resultados",
+        "description": "Revisa las métricas de rendimiento y robustez"
+      },
+      "deploy": {
+        "title": "Exportar y Desplegar",
+        "description": "Obtén tu modelo listo para producción"
+      }
+    },
+    "features": {
+      "learnByDoing": {
+        "title": "Aprende Haciendo",
+        "description": "Tutoriales interactivos te guían en cada paso"
+      },
+      "cuttingEdgeAI": {
+        "title": "IA de Vanguardia",
+        "description": "Arquitectura TabKANet con atención Transformer"
+      },
+      "productionReady": {
+        "title": "Listo para Producción",
+        "description": "Exporta modelos optimizados para despliegue real"
+      }
+    },
+    "buttons": {
+      "previous": "Anterior",
+      "next": "Siguiente",
+      "finish": "Finalizar",
+      "startTraining": "Iniciar Entrenamiento",
+      "viewResults": "Ver Resultados",
+      "continueToTraining": "Continuar al Entrenamiento"
+    }
+  },
+  "researchHub": {
+    "title": "Centro de Investigación",
+    "subtitle": "Espacio de trabajo avanzado de aprendizaje automático para investigadores y usuarios expertos",
+    "tabs": {
+      "overview": "Resumen",
+      "data": "Pipeline de Datos",
+      "training": "Entrenamiento",
+      "models": "Registro de Modelos",
+      "evaluation": "Evaluación",
+      "deployment": "Despliegue"
+    },
+    "stats": {
+      "activeJobs": "Trabajos Activos",
+      "modelsTrained": "Modelos Entrenados",
+      "bestAccuracy": "Mejor Precisión",
+      "gpuHours": "Horas GPU"
+    },
+    "buttons": {
+      "jupyterLab": "Jupyter Lab",
+      "newExperiment": "Nuevo Experimento",
+      "refresh": "Actualizar",
+      "registerModel": "Registrar Modelo"
+    }
+  },
+  "dataUploader": {
+    "title": "Subida de Datos",
+    "description": "Sube tu conjunto de datos para comenzar el entrenamiento. Formatos soportados: {{formats}}",
+    "dropZone": {
+      "title": "Arrastra tu archivo aquí",
+      "subtitle": "o haz clic para explorar archivos",
+      "selectFile": "Seleccionar Archivo",
+      "maxSize": "Tamaño máximo de archivo: {{size}}MB"
+    },
+    "processing": "Procesando archivo...",
+    "success": "Datos Cargados Exitosamente",
+    "tabs": {
+      "preview": "Vista Previa de Datos",
+      "schema": "Mapeo de Esquema",
+      "eda": "EDA Rápido"
+    },
+    "buttons": {
+      "uploadDifferent": "Subir Archivo Diferente",
+      "continueToTraining": "Continuar al Entrenamiento"
+    }
+  },
+  "hyperparamPanel": {
+    "title": "Configuración de Hiperparámetros",
+    "guidedDescription": "Ajusta los parámetros de entrenamiento con controles guiados",
+    "advancedDescription": "Control completo sobre los hiperparámetros del modelo",
+    "tabs": {
+      "presets": "Preajustes",
+      "parameters": "Parámetros",
+      "yaml": "Editor YAML"
+    },
+    "presets": {
+      "fastTraining": {
+        "name": "Entrenamiento Rápido",
+        "description": "Entrenamiento rápido para prototipado"
+      },
+      "balanced": {
+        "name": "Equilibrado",
+        "description": "Buen equilibrio entre velocidad y rendimiento"
+      },
+      "highPerformance": {
+        "name": "Alto Rendimiento",
+        "description": "Optimizado para la mejor precisión"
+      },
+      "largeDataset": {
+        "name": "Conjunto de Datos Grande",
+        "description": "Optimizado para conjuntos de datos > 100k filas"
+      }
+    },
+    "sections": {
+      "trainingParameters": "Parámetros de Entrenamiento",
+      "modelArchitecture": "Arquitectura del Modelo",
+      "trainingOptions": "Opciones de Entrenamiento"
+    },
+    "buttons": {
+      "resetDefaults": "Restablecer Predeterminados",
+      "savePreset": "Guardar Preajuste",
+      "startTraining": "Iniciar Entrenamiento",
+      "applyYaml": "Aplicar YAML",
+      "clear": "Limpiar"
+    }
+  },
+  "modelCard": {
+    "buttons": {
+      "share": "Compartir",
+      "export": "Exportar"
+    },
+    "exportDialog": {
+      "title": "Exportar Modelo",
+      "description": "Elige el formato para el despliegue del modelo",
+      "formatLabel": "Formato de Exportación",
+      "exportButton": "Exportar Modelo",
+      "exporting": "Exportando..."
+    },
+    "tabs": {
+      "performance": "Rendimiento",
+      "robustness": "Robustez",
+      "inference": "Inferencia",
+      "details": "Detalles"
+    },
+    "metrics": {
+      "accuracy": "Precisión",
+      "precision": "Precisión",
+      "recall": "Recall",
+      "f1Score": "Puntuación F1",
+      "aucRoc": "AUC-ROC",
+      "loss": "Pérdida",
+      "adversarialAccuracy": "Precisión Adversarial",
+      "calibrationError": "Error de Calibración",
+      "uncertaintyScore": "Puntuación de Incertidumbre",
+      "attackSuccessRate": "Tasa de Éxito de Ataque",
+      "latency": "Latencia",
+      "throughput": "Rendimiento",
+      "memory": "Memoria",
+      "modelSize": "Tamaño del Modelo"
+    }
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "warning": "Advertencia",
+    "info": "Información",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "view": "Ver",
+    "download": "Descargar",
+    "upload": "Subir",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "sort": "Ordenar",
+    "settings": "Configuración",
+    "help": "Ayuda",
+    "close": "Cerrar",
+    "open": "Abrir",
+    "yes": "Sí",
+    "no": "No",
+    "ok": "OK"
+  },
+  "errors": {
+    "fileNotFound": "Archivo no encontrado",
+    "unsupportedFormat": "Formato de archivo no soportado",
+    "fileTooLarge": "Archivo demasiado grande",
+    "uploadFailed": "Fallo en la subida",
+    "trainingFailed": "Fallo en el entrenamiento",
+    "exportFailed": "Fallo en la exportación",
+    "networkError": "Error de red",
+    "unknownError": "Ocurrió un error desconocido"
+  }
+}

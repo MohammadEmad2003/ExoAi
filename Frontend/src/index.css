@@ -1,0 +1,340 @@
+/* Import RTL support styles */
+@import './styles/rtl.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Space-inspired design system for exoplanet discovery project.
+All colors MUST be HSL for consistency.
+*/
+
+@layer base {
+  :root {
+    /* Deep space theme with enhanced contrast */
+    --background: 220 50% 4%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 45% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 45% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Stellar primary - bright cyan-blue */
+    --primary: 195 100% 70%;
+    --primary-foreground: 220 50% 4%;
+
+    /* Nebula secondary - vibrant purple */
+    --secondary: 270 100% 75%;
+    --secondary-foreground: 220 50% 4%;
+
+    /* Muted cosmic tones with better contrast */
+    --muted: 220 35% 15%;
+    --muted-foreground: 210 30% 70%;
+    
+    /* High contrast text for light backgrounds */
+    --foreground-emphasis: 220 40% 12%;
+
+    /* Cosmic accent - warm orange */
+    --accent: 25 100% 65%;
+    --accent-foreground: 220 50% 4%;
+
+    /* Alert red dwarf */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* UI elements with enhanced visibility */
+    --border: 220 35% 25%;
+    --input: 220 35% 12%;
+    --ring: 195 100% 70%;
+
+    --radius: 0.75rem;
+
+    /* Enhanced cosmic gradients */
+    --gradient-cosmic: radial-gradient(ellipse at top, hsl(240 60% 8%) 0%, hsl(220 50% 4%) 50%, hsl(240 40% 2%) 100%);
+    --gradient-nebula: linear-gradient(45deg, hsl(270 100% 75%), hsl(280 100% 70%), hsl(195 100% 70%));
+    --gradient-stellar: linear-gradient(180deg, hsl(195 100% 70%), hsl(200 100% 75%));
+    --gradient-exoplanet: linear-gradient(135deg, hsl(25 100% 65%), hsl(35 100% 60%));
+
+    /* Enhanced shadows with cosmic glow */
+    --shadow-stellar: 0 0 40px hsl(195 100% 70% / 0.4);
+    --shadow-nebula: 0 0 60px hsl(270 100% 75% / 0.3);
+    --shadow-cosmic: 0 10px 30px hsl(220 50% 4% / 0.8);
+
+    /* Animations */
+    --transition-cosmic: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    --transition-stellar: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Single cosmic theme - no dark mode toggle needed */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: var(--gradient-cosmic);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Arabic RTL support */
+  [dir="rtl"] body {
+    font-family: 'Noto Sans Arabic', 'Cairo', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Keep technical terms LTR in RTL context */
+  .technical-term {
+    direction: ltr;
+    display: inline-block;
+    unicode-bidi: isolate;
+  }
+
+  /* RTL-aware spacing */
+  [dir="rtl"] .space-x-2 > * + * {
+    margin-inline-start: 0.5rem;
+    margin-inline-end: 0;
+  }
+
+  [dir="rtl"] .space-x-3 > * + * {
+    margin-inline-start: 0.75rem;
+    margin-inline-end: 0;
+  }
+
+  [dir="rtl"] .space-x-4 > * + * {
+    margin-inline-start: 1rem;
+    margin-inline-end: 0;
+  }
+
+  /* Mirror directional icons */
+  [dir="rtl"] .icon-mirror {
+    transform: scaleX(-1);
+  }
+
+  /* Animated starfield background */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      radial-gradient(2px 2px at 20px 30px, hsl(210 40% 98% / 0.8), transparent),
+      radial-gradient(2px 2px at 40px 70px, hsl(195 100% 70% / 0.6), transparent),
+      radial-gradient(1px 1px at 90px 40px, hsl(270 100% 75% / 0.5), transparent),
+      radial-gradient(1px 1px at 130px 80px, hsl(210 40% 98% / 0.7), transparent),
+      radial-gradient(2px 2px at 160px 30px, hsl(25 100% 65% / 0.4), transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: twinkle 10s ease-in-out infinite alternate;
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+
+@layer components {
+  /* Hero button variants */
+  .btn-stellar {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90;
+    background: var(--gradient-stellar);
+    box-shadow: var(--shadow-stellar);
+    transition: var(--transition-cosmic);
+  }
+  
+  .btn-cosmic {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90;
+    background: var(--gradient-nebula);
+    box-shadow: var(--shadow-nebula);
+    transition: var(--transition-cosmic);
+  }
+
+  .btn-exoplanet {
+    @apply bg-accent text-accent-foreground hover:bg-accent/90;
+    background: var(--gradient-exoplanet);
+    transition: var(--transition-cosmic);
+  }
+
+  /* Card variants */
+  .card-cosmic {
+    @apply bg-card/50 border border-border/50 backdrop-blur-sm;
+    box-shadow: var(--shadow-cosmic);
+    transition: var(--transition-cosmic);
+  }
+
+  .card-cosmic:hover {
+    @apply border-primary/30;
+    box-shadow: var(--shadow-stellar);
+  }
+
+  /* Cosmic animations */
+  .stellar-pulse {
+    animation: stellar-pulse 3s ease-in-out infinite;
+  }
+
+  .cosmic-float {
+    animation: cosmic-float 6s ease-in-out infinite;
+  }
+
+  .nebula-glow {
+    animation: nebula-glow 4s ease-in-out infinite alternate;
+  }
+
+  /* Exoplanet animations */
+  .exoplanet {
+    position: absolute;
+    border-radius: 50%;
+    animation: orbit 20s linear infinite;
+  }
+
+  .exoplanet-1 {
+    width: 40px;
+    height: 40px;
+    background: var(--gradient-exoplanet);
+    top: 20%;
+    left: 10%;
+    animation: orbit-1 25s linear infinite;
+  }
+
+  .exoplanet-2 {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, hsl(195 100% 70%), hsl(210 100% 60%));
+    top: 60%;
+    right: 15%;
+    animation: orbit-2 30s linear infinite reverse;
+  }
+
+  .exoplanet-3 {
+    width: 35px;
+    height: 35px;
+    background: linear-gradient(135deg, hsl(270 100% 75%), hsl(280 80% 65%));
+    top: 40%;
+    left: 70%;
+    animation: orbit-3 35s linear infinite;
+  }
+
+  .exoplanet-4 {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, hsl(25 100% 65%), hsl(15 90% 55%));
+    bottom: 20%;
+    left: 20%;
+    animation: orbit-4 40s linear infinite reverse;
+  }
+
+  /* Navigation styles */
+  .nav-link {
+    @apply relative px-4 py-2 rounded-md transition-all duration-300;
+    @apply hover:bg-primary/10 hover:text-primary;
+  }
+
+  .nav-link.active {
+    @apply bg-primary/20 text-primary;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-1/2 w-0 h-0.5 bg-primary;
+    @apply transition-all duration-300;
+    transform: translateX(-50%);
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    @apply w-3/4;
+  }
+}
+
+@layer utilities {
+  /* Text gradients */
+  .text-gradient-stellar {
+    background: var(--gradient-stellar);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-nebula {
+    background: var(--gradient-nebula);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Cosmic keyframes */
+  @keyframes stellar-pulse {
+    0%, 100% { 
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% { 
+      opacity: 0.8;
+      transform: scale(1.02);
+    }
+  }
+
+  @keyframes cosmic-float {
+    0%, 100% { 
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% { 
+      transform: translateY(-10px) rotate(5deg);
+    }
+  }
+
+  @keyframes nebula-glow {
+    0% { 
+      filter: drop-shadow(0 0 5px hsl(270 100% 75% / 0.3));
+    }
+    100% { 
+      filter: drop-shadow(0 0 20px hsl(270 100% 75% / 0.6));
+    }
+  }
+
+  @keyframes twinkle {
+    0% { opacity: 0.3; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes orbit-1 {
+    0% { transform: rotate(0deg) translateX(80px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(80px) rotate(-360deg); }
+  }
+
+  @keyframes orbit-2 {
+    0% { transform: rotate(0deg) translateX(120px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+  }
+
+  @keyframes orbit-3 {
+    0% { transform: rotate(0deg) translateX(60px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
+  }
+
+  @keyframes orbit-4 {
+    0% { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+  }
+}

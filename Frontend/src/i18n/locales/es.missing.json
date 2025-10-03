@@ -1,0 +1,197 @@
+{
+  "chat": {
+    "citations": "",
+    "clearHistory": "",
+    "contextDataset": "",
+    "helpText": "",
+    "inputPlaceholder": "",
+    "poweredBy": "",
+    "suggestedActions": "",
+    "title": "",
+    "typing": "",
+    "welcomeMessage": ""
+  },
+  "common": {
+    "export": "",
+    "more": ""
+  },
+  "demo": {
+    "guided": {
+      "lightCurve": {
+        "title": ""
+      },
+      "threshold": {
+        "description": "",
+        "hint": "",
+        "label": "",
+        "title": ""
+      }
+    },
+    "status": {
+      "confirmedPlanet": "",
+      "noPlanet": "",
+      "planetCandidate": ""
+    },
+    "subtitle": "",
+    "tabs": {
+      "advanced": "",
+      "guided": ""
+    },
+    "title": ""
+  },
+  "home": {
+    "challenge": {
+      "description": "",
+      "explore": "",
+      "title": ""
+    },
+    "hero": {
+      "description": "",
+      "learnMore": "",
+      "title1": "",
+      "title2": "",
+      "tryModel": ""
+    },
+    "highlights": {
+      "accuracy": {
+        "description": "",
+        "title": ""
+      },
+      "datasets": {
+        "description": "",
+        "title": ""
+      },
+      "deepLearning": {
+        "description": "",
+        "title": ""
+      },
+      "title": ""
+    }
+  },
+  "navigation": {
+    "adversarial": "",
+    "demo": "",
+    "guidedMode": "",
+    "home": "",
+    "quantum": "",
+    "researchHub": "",
+    "resources": "",
+    "team": "",
+    "upload": "",
+    "visualizations": ""
+  },
+  "onboarding": {
+    "buttons": {
+      "finish": "",
+      "next": "",
+      "previous": "",
+      "startTraining": "",
+      "viewResults": ""
+    },
+    "configure": {
+      "description": "",
+      "title": ""
+    },
+    "deploy": {
+      "description": "",
+      "title": ""
+    },
+    "evaluate": {
+      "description": "",
+      "title": ""
+    },
+    "features": {
+      "cuttingEdgeAI": {
+        "description": "",
+        "title": ""
+      },
+      "learnByDoing": {
+        "description": "",
+        "title": ""
+      },
+      "productionReady": {
+        "description": "",
+        "title": ""
+      }
+    },
+    "train": {
+      "completed": "",
+      "description": "",
+      "epoch": "",
+      "progressTitle": "",
+      "ready": "",
+      "title": "",
+      "training": "",
+      "trainingLoss": "",
+      "validationAccuracy": ""
+    },
+    "upload": {
+      "description": "",
+      "orUpload": "",
+      "title": ""
+    },
+    "welcome": {
+      "alert": "",
+      "description": "",
+      "title": ""
+    }
+  },
+  "upload": {
+    "actionPlan": {
+      "estimatedTime": "",
+      "memoryReq": "",
+      "preprocessing": "",
+      "recommendedActions": "",
+      "start": "",
+      "suggestedModels": "",
+      "title": ""
+    },
+    "analyzing": "",
+    "chat": {
+      "datasetReady": "",
+      "description": "",
+      "title": ""
+    },
+    "dropZone": {
+      "dropping": "",
+      "selectFile": "",
+      "subtitle": "",
+      "title": ""
+    },
+    "error": {
+      "fileTooLarge": "",
+      "unsupportedFormat": ""
+    },
+    "maxSize": "",
+    "pageSubtitle": "",
+    "pageTitle": "",
+    "profile": {
+      "candidateTargets": "",
+      "column": {
+        "missing": "",
+        "name": "",
+        "role": "",
+        "type": "",
+        "unique": ""
+      },
+      "columns": "",
+      "columnsDetail": "",
+      "issues": "",
+      "quality": {
+        "label": ""
+      },
+      "rows": "",
+      "size": "",
+      "taskType": "",
+      "title": ""
+    },
+    "supportedFormats": "",
+    "tabs": {
+      "chat": "",
+      "profile": "",
+      "upload": ""
+    },
+    "title": "",
+    "uploading": ""
+  }
+}

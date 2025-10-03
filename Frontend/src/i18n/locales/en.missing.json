@@ -1,0 +1,197 @@
+{
+  "chat": {
+    "citations": "citations",
+    "clearHistory": "clearHistory",
+    "contextDataset": "contextDataset",
+    "helpText": "helpText",
+    "inputPlaceholder": "inputPlaceholder",
+    "poweredBy": "poweredBy",
+    "suggestedActions": "suggestedActions",
+    "title": "title",
+    "typing": "typing",
+    "welcomeMessage": "welcomeMessage"
+  },
+  "common": {
+    "export": "export",
+    "more": "more"
+  },
+  "demo": {
+    "guided": {
+      "lightCurve": {
+        "title": "title"
+      },
+      "threshold": {
+        "description": "description",
+        "hint": "hint",
+        "label": "label",
+        "title": "title"
+      }
+    },
+    "status": {
+      "confirmedPlanet": "confirmedPlanet",
+      "noPlanet": "noPlanet",
+      "planetCandidate": "planetCandidate"
+    },
+    "subtitle": "subtitle",
+    "tabs": {
+      "advanced": "advanced",
+      "guided": "guided"
+    },
+    "title": "title"
+  },
+  "home": {
+    "challenge": {
+      "description": "description",
+      "explore": "explore",
+      "title": "title"
+    },
+    "hero": {
+      "description": "description",
+      "learnMore": "learnMore",
+      "title1": "title1",
+      "title2": "title2",
+      "tryModel": "tryModel"
+    },
+    "highlights": {
+      "accuracy": {
+        "description": "description",
+        "title": "title"
+      },
+      "datasets": {
+        "description": "description",
+        "title": "title"
+      },
+      "deepLearning": {
+        "description": "description",
+        "title": "title"
+      },
+      "title": "title"
+    }
+  },
+  "navigation": {
+    "adversarial": "adversarial",
+    "demo": "demo",
+    "guidedMode": "guidedMode",
+    "home": "home",
+    "quantum": "quantum",
+    "researchHub": "researchHub",
+    "resources": "resources",
+    "team": "team",
+    "upload": "upload",
+    "visualizations": "visualizations"
+  },
+  "onboarding": {
+    "buttons": {
+      "finish": "finish",
+      "next": "next",
+      "previous": "previous",
+      "startTraining": "startTraining",
+      "viewResults": "viewResults"
+    },
+    "configure": {
+      "description": "description",
+      "title": "title"
+    },
+    "deploy": {
+      "description": "description",
+      "title": "title"
+    },
+    "evaluate": {
+      "description": "description",
+      "title": "title"
+    },
+    "features": {
+      "cuttingEdgeAI": {
+        "description": "description",
+        "title": "title"
+      },
+      "learnByDoing": {
+        "description": "description",
+        "title": "title"
+      },
+      "productionReady": {
+        "description": "description",
+        "title": "title"
+      }
+    },
+    "train": {
+      "completed": "completed",
+      "description": "description",
+      "epoch": "epoch",
+      "progressTitle": "progressTitle",
+      "ready": "ready",
+      "title": "title",
+      "training": "training",
+      "trainingLoss": "trainingLoss",
+      "validationAccuracy": "validationAccuracy"
+    },
+    "upload": {
+      "description": "description",
+      "orUpload": "orUpload",
+      "title": "title"
+    },
+    "welcome": {
+      "alert": "alert",
+      "description": "description",
+      "title": "title"
+    }
+  },
+  "upload": {
+    "actionPlan": {
+      "estimatedTime": "estimatedTime",
+      "memoryReq": "memoryReq",
+      "preprocessing": "preprocessing",
+      "recommendedActions": "recommendedActions",
+      "start": "start",
+      "suggestedModels": "suggestedModels",
+      "title": "title"
+    },
+    "analyzing": "analyzing",
+    "chat": {
+      "datasetReady": "datasetReady",
+      "description": "description",
+      "title": "title"
+    },
+    "dropZone": {
+      "dropping": "dropping",
+      "selectFile": "selectFile",
+      "subtitle": "subtitle",
+      "title": "title"
+    },
+    "error": {
+      "fileTooLarge": "fileTooLarge",
+      "unsupportedFormat": "unsupportedFormat"
+    },
+    "maxSize": "maxSize",
+    "pageSubtitle": "pageSubtitle",
+    "pageTitle": "pageTitle",
+    "profile": {
+      "candidateTargets": "candidateTargets",
+      "column": {
+        "missing": "missing",
+        "name": "name",
+        "role": "role",
+        "type": "type",
+        "unique": "unique"
+      },
+      "columns": "columns",
+      "columnsDetail": "columnsDetail",
+      "issues": "issues",
+      "quality": {
+        "label": "label"
+      },
+      "rows": "rows",
+      "size": "size",
+      "taskType": "taskType",
+      "title": "title"
+    },
+    "supportedFormats": "supportedFormats",
+    "tabs": {
+      "chat": "chat",
+      "profile": "profile",
+      "upload": "upload"
+    },
+    "title": "title",
+    "uploading": "uploading"
+  }
+}

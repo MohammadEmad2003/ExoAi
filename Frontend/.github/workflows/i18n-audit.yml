@@ -1,0 +1,147 @@
+name: i18n Translation Audit
+
+on:
+  pull_request:
+    paths:
+      - 'src/**/*.tsx'
+      - 'src/**/*.ts'
+      - 'src/i18n/locales/**/*.json'
+      - 'package.json'
+      - 'package-lock.json'
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  i18n-audit:
+    name: Check Translation Completeness
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Run i18n audit
+        run: npm run i18n:audit
+        
+      - name: Generate i18n report
+        run: npm run i18n:report
+        
+      - name: Upload i18n report as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: i18n-report
+          path: i18n-report.json
+          retention-days: 30
+          
+      - name: Comment coverage on PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const report = JSON.parse(fs.readFileSync('i18n-report.json', 'utf8'));
+            
+            const comment = `## 🌐 i18n Translation Report
+            
+            **Overall Coverage**: ${report.overall_coverage_percentage}%
+            
+            ### Language Coverage:
+            - 🇺🇸 **English**: ${report.languages.en.coverage_percentage}% (${report.languages.en.keys_count} keys)
+            - 🇸🇦 **Arabic**: ${report.languages.ar.coverage_percentage}% (${report.languages.ar.keys_count} keys)
+            - 🇪🇸 **Spanish**: ${report.languages.es.coverage_percentage}% (${report.languages.es.keys_count} keys)
+            
+            ### Missing Translations:
+            ${report.languages.ar.keys_missing.length > 0 ? 
+              `❌ **Arabic missing**: ${report.languages.ar.keys_missing.length} keys\n` + 
+              report.languages.ar.missing_keys.slice(0, 5).map(key => `- \`${key}\``).join('\n') +
+              (report.languages.ar.missing_keys.length > 5 ? `\n... and ${report.languages.ar.missing_keys.length - 5} more` : '') :
+              '✅ **Arabic**: Complete!'
+            }
+            
+            ${report.languages.es.keys_missing.length > 0 ? 
+              `❌ **Spanish missing**: ${report.languages.es.keys_missing.length} keys\n` + 
+              report.languages.es.missing_keys.slice(0, 3).map(key => `- \`${key}\``).join('\n') +
+              (report.languages.es.missing_keys.length > 3 ? `\n... and ${report.languages.es.missing_keys.length - 3} more` : '') :
+              '✅ **Spanish**: Complete!'
+            }
+            
+            ### Auto-translated Keys Needing Review:
+            ${report.summary.needs_review > 0 ? 
+              `🔍 **${report.summary.needs_review}** entries need human review` :
+              '✅ All translations reviewed'
+            }
+            
+            ---
+            *Generated at: ${new Date(report.generated_at).toLocaleString()}*
+            `;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
+            
+      - name: Fail if coverage below threshold
+        run: |
+          ARABIC_COVERAGE=$(node -e "const r = require('./i18n-report.json'); console.log(Math.floor(r.languages.ar.coverage_percentage))")
+          echo "Arabic coverage: $ARABIC_COVERAGE%"
+          if [ "$ARABIC_COVERAGE" -lt 95 ]; then
+            echo "❌ Arabic translation coverage ($ARABIC_COVERAGE%) is below required threshold (95%)"
+            exit 1
+          else
+            echo "✅ Arabic translation coverage meets requirements"
+          fi
+
+  accessibility-check:
+    name: Check RTL Accessibility
+    runs-on: ubuntu-latest
+    needs: i18n-audit
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Build application
+        run: npm run build
+        
+      - name: Install axe-core
+        run: npm install -g @axe-core/cli
+        
+      - name: Start preview server
+        run: npm run preview &
+        
+      - name: Wait for server
+        run: sleep 10
+        
+      - name: Run accessibility audit (Arabic)
+        run: |
+          # Test main pages in Arabic mode
+          axe http://localhost:4173/?lang=ar --save accessibility-report-ar.json || true
+          
+      - name: Upload accessibility report
+        uses: actions/upload-artifact@v4
+        with:
+          name: accessibility-report-arabic
+          path: accessibility-report-ar.json
+          retention-days: 7

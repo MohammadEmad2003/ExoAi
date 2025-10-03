@@ -1,0 +1,92 @@
+version: '3.8'
+
+services:
+  # Main API service
+  api:
+    build:
+      context: .
+      target: development
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - ./uploads:/app/uploads
+      - ./models_registry:/app/models_registry
+      - ./exports:/app/exports
+      - ./benchmarks:/app/benchmarks
+      - ./extracted_modules:/app/extracted_modules
+    environment:
+      - PYTHONPATH=/app
+      - MODEL_CONFIG_PATH=/app/model_config.yaml
+      - ENVIRONMENT=development
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Development service
+  dev:
+    build:
+      context: .
+      target: development
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/app
+      - ./models:/app/models
+      - ./exports:/app/exports
+      - ./extracted_modules:/app/extracted_modules
+    environment:
+      - PYTHONPATH=/app
+      - JUPYTER_ENABLE_LAB=yes
+    command: ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root", "--NotebookApp.token=''", "--NotebookApp.password=''"]
+
+  # Model export service (for batch processing)
+  exporter:
+    build:
+      context: .
+      target: base
+    volumes:
+      - ./models:/app/models
+      - ./exports:/app/exports
+      - ./extracted_modules:/app/extracted_modules
+    environment:
+      - PYTHONPATH=/app
+    command: ["python", "export_model.py", "--config", "model_config.yaml", "--output-dir", "/app/exports", "--formats", "torchscript", "onnx"]
+
+  # Benchmark service
+  benchmark:
+    build:
+      context: .
+      target: base
+    volumes:
+      - ./models:/app/models
+      - ./exports:/app/exports
+      - ./benchmarks:/app/benchmarks
+    environment:
+      - PYTHONPATH=/app
+    command: ["python", "benchmark_inference.py", "--model-path", "/app/exports/model.pt", "--model-type", "torchscript", "--output", "/app/benchmarks/results.json"]
+
+  # Redis for caching (optional)
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+
+  # Nginx for load balancing (optional)
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - api
+    restart: unless-stopped
+
+networks:
+  default:
+    name: cosmic-analysts-network

@@ -1,0 +1,182 @@
+/* RTL Support for Arabic Language */
+
+/* Apply Arabic font when document language is Arabic */
+html[lang="ar"] * {
+  font-family: 'Noto Sans Arabic', 'Cairo', system-ui, -apple-system, sans-serif;
+}
+
+/* RTL layout utilities */
+.rtl-container {
+  direction: rtl;
+}
+
+.ltr-container {
+  direction: ltr;
+}
+
+/* Icon mirroring for RTL */
+[dir="rtl"] .icon-mirror {
+  transform: scaleX(-1);
+}
+
+/* Keep model names and technical terms LTR */
+.inline-ltr {
+  unicode-bidi: isolate;
+  direction: ltr;
+  display: inline-block;
+}
+
+/* RTL-specific spacing adjustments */
+[dir="rtl"] .ml-2 { margin-left: 0; margin-right: 0.5rem; }
+[dir="rtl"] .mr-2 { margin-right: 0; margin-left: 0.5rem; }
+[dir="rtl"] .ml-4 { margin-left: 0; margin-right: 1rem; }
+[dir="rtl"] .mr-4 { margin-right: 0; margin-left: 1rem; }
+[dir="rtl"] .pl-4 { padding-left: 0; padding-right: 1rem; }
+[dir="rtl"] .pr-4 { padding-right: 0; padding-left: 1rem; }
+[dir="rtl"] .pl-6 { padding-left: 0; padding-right: 1.5rem; }
+[dir="rtl"] .pr-6 { padding-right: 0; padding-left: 1.5rem; }
+
+/* RTL-specific border adjustments */
+[dir="rtl"] .border-l-4 { border-left-width: 0; border-right-width: 4px; }
+[dir="rtl"] .border-r-4 { border-right-width: 0; border-left-width: 4px; }
+
+/* RTL text alignment */
+[dir="rtl"] .text-left { text-align: right; }
+[dir="rtl"] .text-right { text-align: left; }
+
+/* Arabic typography improvements */
+html[lang="ar"] {
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  text-rendering: optimizeLegibility;
+}
+
+/* Better Arabic number rendering */
+html[lang="ar"] .arabic-numerals {
+  font-variant-numeric: lining-nums;
+  direction: ltr;
+  unicode-bidi: embed;
+}
+
+/* Enhanced Arabic form styling */
+html[lang="ar"] input[type="text"],
+html[lang="ar"] input[type="email"], 
+html[lang="ar"] textarea {
+  text-align: right;
+}
+
+html[lang="ar"] input[type="number"] {
+  text-align: left;
+  direction: ltr;
+}
+
+/* Chart and data visualizations should stay LTR */
+.chart-container,
+.data-visualization {
+  direction: ltr;
+}
+
+/* Code blocks and technical content */
+.code-block,
+.technical-content,
+.model-output {
+  direction: ltr;
+  text-align: left;
+  font-family: 'Courier New', monospace;
+}
+
+/* Navigation improvements for RTL */
+[dir="rtl"] .nav-item {
+  text-align: right;
+}
+
+/* Dropdown menu positioning for RTL */
+[dir="rtl"] .dropdown-menu {
+  left: auto;
+  right: 0;
+}
+
+/* Tooltip positioning adjustments */
+[dir="rtl"] .tooltip-left {
+  left: auto;
+  right: 100%;
+}
+
+[dir="rtl"] .tooltip-right {
+  right: auto;
+  left: 100%;
+}
+
+/* Card and component layout adjustments */
+[dir="rtl"] .card-header-actions {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* Progress bar direction */
+[dir="rtl"] .progress-bar {
+  direction: ltr; /* Keep progress bars LTR for consistency */
+}
+
+/* Slider component RTL support */
+[dir="rtl"] .slider-thumb {
+  transform: translateX(50%);
+}
+
+/* Tab component RTL support */
+[dir="rtl"] .tabs-list {
+  direction: rtl;
+}
+
+/* Better Arabic line height */
+html[lang="ar"] {
+  line-height: 1.7;
+}
+
+html[lang="ar"] h1,
+html[lang="ar"] h2,
+html[lang="ar"] h3,
+html[lang="ar"] h4,
+html[lang="ar"] h5,
+html[lang="ar"] h6 {
+  line-height: 1.4;
+}
+
+/* Responsive RTL adjustments */
+@media (max-width: 768px) {
+  [dir="rtl"] .mobile-nav {
+    text-align: right;
+  }
+  
+  [dir="rtl"] .mobile-menu-item {
+    padding-right: 1rem;
+    padding-left: 0;
+  }
+}
+
+/* Animation direction fixes for RTL */
+[dir="rtl"] .slide-in-left {
+  animation-name: slideInRight;
+}
+
+[dir="rtl"] .slide-in-right {
+  animation-name: slideInLeft;
+}
+
+/* Focus styles for Arabic text */
+html[lang="ar"] input:focus,
+html[lang="ar"] textarea:focus,
+html[lang="ar"] select:focus {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+}
+
+/* Print styles for RTL */
+@media print {
+  [dir="rtl"] {
+    direction: rtl;
+  }
+  
+  html[lang="ar"] {
+    font-family: 'Times New Roman', serif;
+  }
+}

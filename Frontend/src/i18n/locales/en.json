@@ -1,0 +1,418 @@
+{
+  "navigation": {
+    "home": "Home",
+    "guidedMode": "Guided Mode",
+    "researchHub": "Research Hub",
+    "challenge": "Challenge",
+    "approach": "Approach",
+    "demo": "Demo",
+    "upload": "Data Upload",
+    "quantum": "Quantum Computing",
+    "adversarial": "Adversarial ML",
+    "visualizations": "Visualizations",
+    "team": "Team",
+    "resources": "Resources"
+  },
+  "onboarding": {
+    "title": "Welcome to Cosmic Analysts ExoAI",
+    "subtitle": "Your guided journey to advanced machine learning",
+    "steps": {
+      "welcome": {
+        "title": "Welcome to Cosmic Analysts ExoAI",
+        "description": "Experience the power of advanced machine learning with our guided platform"
+      },
+      "upload": {
+        "title": "Upload Your Data",
+        "description": "Start by uploading your dataset for analysis"
+      },
+      "configure": {
+        "title": "Configure Training",
+        "description": "Adjust model parameters with guided recommendations"
+      },
+      "train": {
+        "title": "Train Your Model",
+        "description": "Watch your model learn from the data"
+      },
+      "evaluate": {
+        "title": "Evaluate Results",
+        "description": "Review performance and robustness metrics"
+      },
+      "deploy": {
+        "title": "Export & Deploy",
+        "description": "Get your production-ready model"
+      }
+    },
+    "features": {
+      "learnByDoing": {
+        "title": "Learn by Doing",
+        "description": "Interactive tutorials guide you through each step"
+      },
+      "cuttingEdgeAI": {
+        "title": "Cutting-Edge AI",
+        "description": "TabKANet architecture with Transformer attention"
+      },
+      "productionReady": {
+        "title": "Production Ready",
+        "description": "Export optimized models for real-world deployment"
+      }
+    },
+    "buttons": {
+      "previous": "Previous",
+      "next": "Next",
+      "finish": "Finish",
+      "startTraining": "Start Training",
+      "viewResults": "View Results",
+      "continueToTraining": "Continue to Training"
+    }
+  },
+  "researchHub": {
+    "title": "Research Hub",
+    "subtitle": "Advanced machine learning workspace for researchers and power users",
+    "tabs": {
+      "overview": "Overview",
+      "data": "Data Pipeline",
+      "training": "Training",
+      "models": "Model Registry",
+      "evaluation": "Evaluation",
+      "deployment": "Deployment"
+    },
+    "stats": {
+      "activeJobs": "Active Jobs",
+      "modelsTrained": "Models Trained",
+      "bestAccuracy": "Best Accuracy",
+      "gpuHours": "GPU Hours"
+    },
+    "buttons": {
+      "jupyterLab": "Jupyter Lab",
+      "newExperiment": "New Experiment",
+      "refresh": "Refresh",
+      "registerModel": "Register Model"
+    }
+  },
+  "dataUploader": {
+    "title": "Data Upload",
+    "description": "Upload your dataset to begin training. Supported formats: {{formats}}",
+    "dropZone": {
+      "title": "Drop your file here",
+      "subtitle": "or click to browse files",
+      "selectFile": "Select File",
+      "maxSize": "Maximum file size: {{size}}MB"
+    },
+    "processing": "Processing file...",
+    "success": "Data Successfully Loaded",
+    "tabs": {
+      "preview": "Data Preview",
+      "schema": "Schema Mapping",
+      "eda": "Quick EDA"
+    },
+    "buttons": {
+      "uploadDifferent": "Upload Different File",
+      "continueToTraining": "Continue to Training"
+    }
+  },
+  "hyperparamPanel": {
+    "title": "Hyperparameter Configuration",
+    "guidedDescription": "Adjust training parameters with guided controls",
+    "advancedDescription": "Full control over model hyperparameters",
+    "tabs": {
+      "presets": "Presets",
+      "parameters": "Parameters",
+      "yaml": "YAML Editor"
+    },
+    "presets": {
+      "fastTraining": {
+        "name": "Fast Training",
+        "description": "Quick training for prototyping"
+      },
+      "balanced": {
+        "name": "Balanced",
+        "description": "Good balance of speed and performance"
+      },
+      "highPerformance": {
+        "name": "High Performance",
+        "description": "Optimized for best accuracy"
+      },
+      "largeDataset": {
+        "name": "Large Dataset",
+        "description": "Optimized for datasets > 100k rows"
+      }
+    },
+    "sections": {
+      "trainingParameters": "Training Parameters",
+      "modelArchitecture": "Model Architecture",
+      "trainingOptions": "Training Options"
+    },
+    "buttons": {
+      "resetDefaults": "Reset to Defaults",
+      "savePreset": "Save Preset",
+      "startTraining": "Start Training",
+      "applyYaml": "Apply YAML",
+      "clear": "Clear"
+    }
+  },
+  "modelCard": {
+    "buttons": {
+      "share": "Share",
+      "export": "Export"
+    },
+    "exportDialog": {
+      "title": "Export Model",
+      "description": "Choose the format for model deployment",
+      "formatLabel": "Export Format",
+      "exportButton": "Export Model",
+      "exporting": "Exporting..."
+    },
+    "tabs": {
+      "performance": "Performance",
+      "robustness": "Robustness",
+      "inference": "Inference",
+      "details": "Details"
+    },
+    "metrics": {
+      "accuracy": "Accuracy",
+      "precision": "Precision",
+      "recall": "Recall",
+      "f1Score": "F1 Score",
+      "aucRoc": "AUC-ROC",
+      "loss": "Loss",
+      "adversarialAccuracy": "Adversarial Accuracy",
+      "calibrationError": "Calibration Error",
+      "uncertaintyScore": "Uncertainty Score",
+      "attackSuccessRate": "Attack Success Rate",
+      "latency": "Latency",
+      "throughput": "Throughput",
+      "memory": "Memory",
+      "modelSize": "Model Size"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Info",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "download": "Download",
+    "upload": "Upload",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "settings": "Settings",
+    "help": "Help",
+    "close": "Close",
+    "open": "Open",
+    "yes": "Yes",
+    "no": "No",
+    "ok": "OK",
+    "export": "Export"
+  },
+  "errors": {
+    "fileNotFound": "File not found",
+    "unsupportedFormat": "Unsupported file format",
+    "fileTooLarge": "File too large",
+    "uploadFailed": "Upload failed",
+    "trainingFailed": "Training failed",
+    "exportFailed": "Export failed",
+    "networkError": "Network error",
+    "unknownError": "An unknown error occurred"
+  },
+  "home": {
+    "hero": {
+      "title1": "Adversarially Robust, Explainable AI Powered",
+      "title2": "Exoplanet Discovery",
+      "description": "Leveraging machine learning to discover new worlds in NASA's vast datasets. Our advanced machine learning models identifies exoplanet candidates with unprecedented accuracy, pushing the boundaries of astronomical discovery. Not to mention, we made sure the model is robust against adversarial attacks while preserving its accuracy.",
+      "tryModel": "Try Our Model",
+      "learnMore": "Learn More"
+    },
+    "highlights": {
+      "title": "Project Highlights",
+      "datasets": {
+        "title": "NASA Datasets",
+        "description": "Trained on authentic Kepler and TESS mission data, ensuring real-world applicability and scientific validity."
+      },
+      "deepLearning": {
+        "title": "Deep Learning",
+        "description": "Advanced neural architecture designed specifically for light curve analysis and transit detection."
+      },
+      "accuracy": {
+        "title": "High Accuracy",
+        "description": "Achieved 95.2% precision with minimal false positives, validated against confirmed exoplanet catalogs."
+      }
+    },
+    "challenge": {
+      "title": "The Challenge",
+      "description": "With thousands of light curves in NASA's archives, manual analysis is impractical. Our AI solution automates the detection of planetary transits, enabling astronomers to focus on confirmation and characterization of the most promising candidates.",
+      "explore": "Explore the Challenge"
+    }
+  },
+  "demo": {
+    "title": "Model Demo",
+    "subtitle": "Explore two modes: Guided Discovery for newcomers and Advanced Sandbox for researchers",
+    "tabs": {
+      "guided": "Guided Discovery",
+      "advanced": "Advanced Sandbox"
+    },
+    "status": {
+      "confirmedPlanet": "Confirmed Planet",
+      "noPlanet": "No Planet",
+      "planetCandidate": "Planet Candidate"
+    },
+    "probability": "Probability",
+    "period": "Period",
+    "chart": {
+      "timeAxis": "Time (days)",
+      "fluxAxis": "Normalized Flux"
+    },
+    "guided": {
+      "threshold": {
+        "title": "Confidence Threshold",
+        "description": "Move the slider to see how stricter criteria change which objects are considered planets.",
+        "label": "Probability Threshold",
+        "hint": "Higher threshold = fewer false positives."
+      },
+      "lightCurve": {
+        "title": "Light Curve Walkthrough",
+        "description": "This example shows a dip in brightness when the exoplanet passes in front of its star. Our model looks for repeated, evenly spaced dips like this."
+      },
+      "results": {
+        "title": "Classification Results"
+      },
+      "explanation": {
+        "title": "What the model is doing",
+        "description": "The model compares many features of the light curve (depth, duration, periodicity) to past examples. Changing the threshold only changes what we call a \"planet\" vs \"candidate\"—not the underlying score."
+      }
+    },
+    "advanced": {
+      "dataset": {
+        "title": "Dataset",
+        "description": "Upload CSV with two columns: time, flux. Header optional.",
+        "loaded": "Loaded",
+        "points": "points"
+      },
+      "hyperparameters": {
+        "title": "Hyperparameters",
+        "learningRate": "Learning rate",
+        "batchSize": "Batch size",
+        "epochs": "Epochs"
+      },
+      "actions": {
+        "trainClassify": "Train / Classify",
+        "running": "Running...",
+        "reset": "Reset"
+      },
+      "progress": {
+        "training": "Training progress"
+      },
+      "results": {
+        "title": "Results & Metrics",
+        "noResults": "Run a job to generate metrics and classifications.",
+        "accuracy": "Accuracy",
+        "precision": "Precision", 
+        "recall": "Recall"
+      },
+      "chart": {
+        "title": "Light Curve",
+        "uploaded": "Your uploaded dataset is visualized above.",
+        "sample": "No dataset uploaded. Showing a sample light curve."
+      }
+    }
+  },
+  "chat": {
+    "title": "AI Assistant",
+    "welcomeMessage": "Hello! I'm your AI assistant for data analysis and machine learning.",
+    "helpText": "Ask me about your datasets, model training, or any ML questions.",
+    "inputPlaceholder": "Ask about your data or training...",
+    "typing": "AI is thinking...",
+    "clearHistory": "Clear chat",
+    "citations": "Sources",
+    "suggestedActions": "Suggested Actions",
+    "contextDataset": "Context",
+    "poweredBy": "Powered by",
+    "error": {
+      "network": "Network error. Please check your connection.",
+      "server": "Server error. Please try again.",
+      "unknown": "An unexpected error occurred."
+    }
+  },
+  "upload": {
+    "pageTitle": "Data Upload & Analysis",
+    "pageSubtitle": "Upload your dataset to get instant analysis and AI-powered insights",
+    "title": "Upload Dataset",
+    "dropZone": {
+      "title": "Drop your dataset here",
+      "subtitle": "or click to browse files",
+      "dropping": "Drop the file to upload",
+      "selectFile": "Select File"
+    },
+    "supportedFormats": "Supported formats",
+    "maxSize": "Maximum size",
+    "uploading": "Uploading...",
+    "analyzing": "Analyzing dataset...",
+    "tabs": {
+      "upload": "Upload",
+      "profile": "Profile", 
+      "chat": "Chat"
+    },
+    "error": {
+      "unsupportedFormat": "Unsupported file format: {{format}}",
+      "fileTooLarge": "File size {{size}} exceeds maximum {{maxSize}}"
+    },
+    "profile": {
+      "title": "Dataset Profile",
+      "rows": "Rows",
+      "columns": "Columns", 
+      "size": "Size",
+      "quality": {
+        "label": "Data Quality",
+        "excellent": "Excellent",
+        "good": "Good", 
+        "fair": "Fair",
+        "poor": "Poor"
+      },
+      "taskType": "Suggested Task Type",
+      "tasks": {
+        "classification": "Classification",
+        "regression": "Regression",
+        "clustering": "Clustering", 
+        "time_series": "Time Series",
+        "anomaly_detection": "Anomaly Detection",
+        "unknown": "Unknown"
+      },
+      "candidateTargets": "Candidate Target Columns",
+      "issues": "Data Issues",
+      "columnsDetail": "Column Details",
+      "column": {
+        "name": "Column Name",
+        "type": "Data Type",
+        "missing": "Missing %",
+        "unique": "Unique Values",
+        "role": "Suggested Role"
+      },
+      "roles": {
+        "feature": "Feature",
+        "target_candidate": "Target Candidate",
+        "identifier": "Identifier",
+        "timestamp": "Timestamp",
+        "ignore": "Ignore"
+      }
+    },
+    "actionPlan": {
+      "title": "Recommended Action Plan",
+      "estimatedTime": "Estimated Training Time",
+      "memoryReq": "Memory Requirements",
+      "suggestedModels": "Suggested Models",
+      "recommendedActions": "Recommended Actions",
+      "start": "Start",
+      "preprocessing": "Preprocessing Steps"
+    },
+    "chat": {
+      "title": "Chat with Your Dataset",
+      "description": "Ask questions about your data, explore patterns, or get modeling recommendations.",
+      "datasetReady": "Dataset {{filename}} is ready for exploration!"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+# TabKANet Model Configuration
+model:
+  class: "models.tabkanet.TabKANet"
+  constructor:
+    n_num: 104  # Number of numeric features
+    n_cat: 11   # Number of categorical features
+    cat_card_list: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]  # Cardinality for each categorical feature
+    d_model: 64
+    K_inner: 16
+    trans_heads: 4
+    trans_depth: 3
+    mlp_hidden: 256
+    n_classes: 3
+    dropout: 0.12
+
+# Input specifications
+input:
+  numeric_shape: [104]  # Shape of numeric input
+  categorical_shape: [11]  # Shape of categorical input
+  dtype: "float32"
+  device: "auto"  # auto, cpu, cuda
+
+# Export settings
+export:
+  formats: ["torchscript", "onnx"]  # Available: torchscript, onnx, tensorrt
+  opset: 13  # ONNX opset version
+  dynamic_axes:
+    batch_size: "batch_size"
+    sequence_length: "sequence_length"
+  
+# Validation settings
+validation:
+  tolerance: 1e-5  # Maximum allowed difference between original and exported model
+  test_samples: 10  # Number of test samples for validation
+
+# Performance settings
+performance:
+  batch_sizes: [1, 8, 32, 128]  # Batch sizes for benchmarking
+  warmup_runs: 10
+  benchmark_runs: 100

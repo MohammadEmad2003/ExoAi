@@ -32,7 +32,6 @@ const getPrimaryNavItems = (t: any) => [
   { to: "/onboarding", label: t("navigation.guidedMode"), icon: BookOpen },
   { to: "/research", label: t("navigation.researchHub"), icon: Brain },
   { to: "/demo", label: t("navigation.demo"), icon: Play },
-  { to: "/upload", label: t("navigation.upload"), icon: Upload },
   { to: "/quantum", label: t("navigation.quantum"), icon: Atom },
   { to: "/adversarial", label: t("navigation.adversarial"), icon: Shield },
 ];
@@ -65,10 +64,10 @@ export function Navigation() {
             </div>
             <div>
               <h1 className="text-xl font-bold text-gradient-stellar">
-                Cosmic Analysts ExoAI
+                {t('branding.name', 'Cosmic Analysts ExoAI')}
               </h1>
               <p className="text-xs text-muted-foreground hidden sm:block">
-                NASA Challenge 2025
+                {t('branding.tagline', 'NASA Challenge 2025')}
               </p>
             </div>
           </div>
@@ -96,9 +95,15 @@ export function Navigation() {
             {/* More dropdown for secondary items */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="gap-2">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="nav-link flex items-center space-x-2 px-2 py-2 rounded-md transition-colors whitespace-nowrap gap-2"
+                >
                   <MoreHorizontal className="h-4 w-4" />
-                  <span className="text-sm font-medium">{t("More")}</span>
+                  <span className="text-sm font-medium">
+                    {t("common.more")}
+                  </span>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent

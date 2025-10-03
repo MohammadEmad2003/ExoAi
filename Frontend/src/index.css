@@ -171,7 +171,7 @@ All colors MUST be HSL for consistency.
   }
 
   .btn-exoplanet {
-    @apply bg-accent text-accent-foreground hover:bg-accent/90;
+    @apply bg-accent text-accent-foreground hover:bg-primary/90;
     background: var(--gradient-exoplanet);
     transition: var(--transition-cosmic);
   }

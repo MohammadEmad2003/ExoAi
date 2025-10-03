@@ -214,7 +214,7 @@ export default function Demo() {
                 </Card>
 
                 <Card className="card-cosmic p-6">
-                  <h3 className="text-xl font-semibold mb-4">Classification Results</h3>
+                  <h3 className="text-xl font-semibold mb-4">{t('demo.classification.title', 'Classification Results')}</h3>
                   <div className="space-y-3">
                     {mockResults.map((result) => (
                       <div
@@ -244,7 +244,7 @@ export default function Demo() {
                   </div>
 
                   <div className="mt-6 p-4 bg-accent/10 rounded-lg border-l-4 border-accent">
-                    <h4 className="font-semibold mb-2">What the model is doing</h4>
+                    <h4 className="font-semibold mb-2">{t('demo.classification.explanationTitle', 'What the model is doing')}</h4>
                     <p className="text-sm text-muted-foreground">
                       The model compares many features of the light curve (depth, duration, periodicity) to past examples. Changing the threshold only changes what we call a "planet" vs "candidate"—not the underlying score.
                     </p>
@@ -260,7 +260,7 @@ export default function Demo() {
               {/* Left: Data + Controls */}
               <div className="lg:col-span-1">
                 <Card className="card-cosmic p-6 mb-6">
-                  <h3 className="text-xl font-semibold mb-4 flex items-center gap-2"><FileUp className="h-5 w-5" /> Dataset</h3>
+                  <h3 className="text-xl font-semibold mb-4 flex items-center gap-2"><FileUp className="h-5 w-5" /> {t('demo.advanced.datasetTitle', 'Dataset')}</h3>
                   <div className="space-y-3">
                     <Input 
                       type="file"
@@ -272,7 +272,7 @@ export default function Demo() {
                       }}
                     />
                     <p className="text-xs text-muted-foreground">
-                      Upload CSV with two columns: time, flux. Header optional.
+                      {t('demo.advanced.uploadHint', 'Upload CSV with two columns: time, flux. Header optional.')}
                     </p>
                     {uploadedName && (
                       <div className="text-xs text-muted-foreground">Loaded: {uploadedName} ({uploadedCurve?.length ?? 0} points)</div>
@@ -354,7 +354,7 @@ export default function Demo() {
                   </div>
                   <div className="bg-muted/30 p-4 rounded-lg">
                     <p className="text-sm text-muted-foreground">
-                      {uploadedCurve ? 'Your uploaded dataset is visualized above.' : 'No dataset uploaded. Showing a sample light curve.'}
+                      {uploadedCurve ? t('demo.advanced.uploadedVisualized', 'Your uploaded dataset is visualized above.') : t('demo.advanced.noDatasetSample', 'No dataset uploaded. Showing a sample light curve.')}
                     </p>
                   </div>
                 </Card>

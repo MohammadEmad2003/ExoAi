@@ -32,8 +32,10 @@ i18n
     },
     
     detection: {
-      order: ['localStorage', 'navigator', 'htmlTag'],
-      caches: ['localStorage'],
+        // Allow quick testing via URL query (e.g. ?lng=ar), then fall back to stored preference
+        order: ['querystring', 'localStorage', 'navigator', 'htmlTag'],
+        caches: ['localStorage'],
+        lookupQuerystring: 'lng',
     },
   });
 
@@ -90,20 +92,36 @@ i18n.on('languageChanged', (lng) => {
 
 // Set initial direction and language
 const storedLang = localStorage.getItem('preferred-language');
-const currentLang = storedLang || i18n.language || 'en';
+const queryLang = typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('lng') : null;
+const currentLang = storedLang || queryLang || i18n.language || 'en';
 
-// Initialize language if stored preference exists
-if (storedLang && storedLang !== i18n.language) {
+// Priority: query param > stored preference > detected language > default 'en'
+if (queryLang && queryLang !== i18n.language) {
+  i18n.changeLanguage(queryLang);
+} else if (storedLang && storedLang !== i18n.language) {
   i18n.changeLanguage(storedLang);
-} else {
-  // Trigger initial setup
-  const dir = currentLang === 'ar' ? 'rtl' : 'ltr';
-  document.documentElement.dir = dir;
-  document.documentElement.lang = currentLang;
-  
-  if (currentLang === 'ar') {
-    document.documentElement.classList.add('lang-arabic');
+} else if (!storedLang && !queryLang) {
+  // Force English as the default when there's no stored preference or query override
+  if (i18n.language !== 'en') {
+    i18n.changeLanguage('en');
   }
 }
 
+// Apply document direction and lang
+const dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+document.documentElement.dir = dir;
+document.documentElement.lang = currentLang;
+
+if (currentLang === 'ar') {
+  document.documentElement.classList.add('lang-arabic');
+} else {
+  document.documentElement.classList.remove('lang-arabic');
+}
+
 export default i18n;
+
+// Helpful debug log in development so you can verify which language was detected/used
+if (process.env.NODE_ENV === 'development') {
+  // eslint-disable-next-line no-console
+  console.debug('[i18n] initialized. current language:', i18n.language);
+}

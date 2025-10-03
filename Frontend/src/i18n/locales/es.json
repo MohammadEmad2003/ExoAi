@@ -206,7 +206,8 @@
     "open": "Abrir",
     "yes": "Sí",
     "no": "No",
-    "ok": "OK"
+    "ok": "OK",
+    "more": "Más"
   },
   "errors": {
     "fileNotFound": "Archivo no encontrado",

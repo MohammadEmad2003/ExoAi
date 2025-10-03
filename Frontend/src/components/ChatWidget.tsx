@@ -1,8 +1,3 @@
-/**
- * Bilingual ChatWidget component with RTL support and RAG integration.
- * Supports English and Arabic with proper layout mirroring and technical term handling.
- */
-
 import React, { useState, useRef, useEffect } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { useTranslation } from "react-i18next";

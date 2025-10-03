@@ -31,7 +31,7 @@ export default function LanguageSwitcher() {
         <Button
           variant="ghost"
           size="sm"
-          className="nav-link flex items-center space-x-2 px-2 py-2 rounded-md transition-colors whitespace-nowrap gap-2 hover:bg-primary/5 text-foreground"
+          className="nav-link flex items-center space-x-2 px-2 py-2 rounded-md transition-colors whitespace-nowrap gap-2"
         >
           <Globe className="h-4 w-4" />
           <span className="hidden sm:inline text-current">
@@ -46,7 +46,7 @@ export default function LanguageSwitcher() {
             key={language.code}
             onClick={() => changeLanguage(language.code)}
             className={`cursor-pointer ${
-              i18n.language === language.code ? "bg-accent" : ""
+              i18n.language === language.code ? "bg-primary text-primary-foreground" : ""
             }`}
           >
             <span className="mr-2">{language.flag}</span>

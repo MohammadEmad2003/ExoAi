@@ -13,6 +13,10 @@
     "team": "Team",
     "resources": "Resources"
   },
+  "branding": {
+    "name": "Cosmic Analysts ExoAI",
+    "tagline": "NASA Challenge 2025"
+  },
   "onboarding": {
     "title": "Welcome to Cosmic Analysts ExoAI",
     "subtitle": "Your guided journey to advanced machine learning",
@@ -22,6 +26,10 @@
         "description": "Experience the power of advanced machine learning with our guided platform"
       },
       "upload": {
+        "samplesLabel": "Samples:",
+        "featuresLabel": "Features:",
+        "targetLabel": "Target:",
+        "difficultyLabel": "Difficulty:",
         "title": "Upload Your Data",
         "description": "Start by uploading your dataset for analysis"
       },
@@ -42,7 +50,70 @@
         "description": "Get your production-ready model"
       }
     },
-    "features": {
+    "banner": {
+      "title": "Step Into Our 3D Universe",
+      "description": "Fly around exoplanets, discover alien worlds, and uncover hidden patterns — a playful, gamified experience that makes exploring astronomy and ML data feel like an adventure. Click \"Enter Free Move\" to pilot the camera yourself and roam the system.",
+      "enterFreeMove": "Enter Free Move",
+      "exitFreeMove": "Exit Free Move",
+      "clickToStart": "Click on the screen to start",
+      "pressEscToExit": "Press ESC to exit",
+      "badges": {
+        "interactive": "Interactive",
+        "immersive": "Immersive",
+        "learnByPlaying": "Learn-by-Playing"
+      },
+      "viewGuide": "View Guide"
+    },
+    "welcome": {
+      "heading": "Guided Onboarding",
+      "subtitle": "Explore the Kepler and Exo models interactively."
+    },
+    "models": {
+      "exoplanet": "Exoplanet",
+      "kepler": "Kepler"
+    },
+    "kepler": {
+      "title": "🌍 Exoplanet: Kepler-186f",
+      "planetTypeLabel": "Planet Type:",
+      "planetType": "Super Earth",
+      "distanceLabel": "Distance from Earth",
+      "distanceValue": "~579 light years",
+      "textureLabel": "Texture Size",
+      "textureValue": "512×512 (optimized)",
+      "verticesLabel": "Vertices Count",
+      "verticesValue": "304 (low-poly)",
+      "meshLabel": "Mesh",
+      "meshValue": "Performance-focused",
+      "aboutTitle": "🪐 About Kepler-186f",
+      "paragraph1": "Kepler-186f orbits a red dwarf in the constellation Cygnus and is notable for being the first Earth-sized planet discovered in the habitable zone of its star — the region where liquid water could exist on the surface.",
+      "paragraph2": "Classified as a Super Earth, Kepler-186f is larger and more massive than Earth but smaller than Neptune, likely with a rocky surface. Because its star is cooler and dimmer, the planet receives less stellar energy; if an atmosphere is present it may trap heat and moderate surface temperatures.",
+      "paragraph3": "The discovery of Kepler-186f marked an important milestone in the search for potentially habitable worlds and helps inform how we model exoplanet climates and detection strategies."
+    },
+    "userGuide": {
+      "title": "🌌 3D Universe – User Guide",
+      "welcome": "Welcome to the 3D Universe Explorer, an interactive environment where you can explore distant exoplanets like Kepler-186f.",
+      "basicControls": "🖱 Basic Controls",
+      "controls": {
+        "leftMouse": "Left Mouse Button (Drag): Rotate around the universe",
+        "rightMouse": "Right Mouse Button (Drag): Pan the camera view",
+        "scroll": "Scroll Wheel: Zoom in and out smoothly"
+      },
+      "freeMoveTitle": "🎮 Free Move Mode (Exoplanet Universe Only)",
+      "freeMoveDescription": "When inside an exoplanet universe, you can switch to Free Move Mode for a more immersive experience. After clicking the Enter Free Move button, click the 3D model to lock pointer and begin moving.",
+      "enableDisable": "Enable / Disable Free Move Mode:",
+      "enableInstructions": "Click the 'Enter Free Move' button in the top-left corner. To exit, click 'Exit Free Move'.",
+      "movementKeys": "Movement Keys:",
+      "movementKeysList": "W / ↑ Arrow: Move Forward · S / ↓ Arrow: Move Backward · A / ← Arrow: Move Left · D / → Arrow: Move Right",
+      "mouseMovement": "Mouse Movement:",
+      "exploringExoplanets": "🌍 Exploring Exoplanets",
+      "tips": {
+        "title": "⚡ Tips",
+        "startInOrbit": "Start in Orbit Mode to get a full overview.",
+        "useFreeMove": "Use Free Move Mode to dive deeper into individual planets.",
+        "viewFullscreen": "For best experience, view in fullscreen and on a desktop."
+      }
+    },
+  "features": {
       "learnByDoing": {
         "title": "Learn by Doing",
         "description": "Interactive tutorials guide you through each step"
@@ -208,7 +279,8 @@
     "yes": "Yes",
     "no": "No",
     "ok": "OK",
-    "export": "Export"
+    "export": "Export",
+    "more": "More"
   },
   "errors": {
     "fileNotFound": "File not found",
@@ -311,7 +383,7 @@
         "title": "Results & Metrics",
         "noResults": "Run a job to generate metrics and classifications.",
         "accuracy": "Accuracy",
-        "precision": "Precision", 
+        "precision": "Precision",
         "recall": "Recall"
       },
       "chart": {
@@ -354,7 +426,7 @@
     "analyzing": "Analyzing dataset...",
     "tabs": {
       "upload": "Upload",
-      "profile": "Profile", 
+      "profile": "Profile",
       "chat": "Chat"
     },
     "error": {
@@ -364,12 +436,12 @@
     "profile": {
       "title": "Dataset Profile",
       "rows": "Rows",
-      "columns": "Columns", 
+      "columns": "Columns",
       "size": "Size",
       "quality": {
         "label": "Data Quality",
         "excellent": "Excellent",
-        "good": "Good", 
+        "good": "Good",
         "fair": "Fair",
         "poor": "Poor"
       },
@@ -377,7 +449,7 @@
       "tasks": {
         "classification": "Classification",
         "regression": "Regression",
-        "clustering": "Clustering", 
+        "clustering": "Clustering",
         "time_series": "Time Series",
         "anomaly_detection": "Anomaly Detection",
         "unknown": "Unknown"

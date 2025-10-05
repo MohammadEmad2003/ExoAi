@@ -26,31 +26,39 @@ const teamMembers = [
     }
   },
   {
-    name: "Dr. Michael Rodriguez",
-    role: "Data Scientist",
-    institution: "NASA Ames Research Center",
-    expertise: ["Time Series Analysis", "Statistical Modeling", "Kepler Data"],
-    bio: "NASA researcher specializing in Kepler and TESS data processing. Expert in astronomical time series analysis with focus on transit photometry.",
-    image: "/api/placeholder/150/150",
-    links: {
-      github: "https://github.com/m-rodriguez",
-      linkedin: "https://linkedin.com/in/michael-rodriguez-nasa",
-      email: "michael.rodriguez@nasa.gov"
-    }
-  },
-  {
-    name: "Alex Kim",
-    role: "Software Engineer",
-    institution: "UC Berkeley",
-    expertise: ["Python", "TensorFlow", "Data Pipelines", "Web Development"],
-    bio: "MS Computer Science student with focus on scientific computing. Experienced in building scalable ML pipelines and interactive web applications.",
-    image: "/api/placeholder/150/150",
-    links: {
-      github: "https://github.com/alex-kim-dev",
-      linkedin: "https://linkedin.com/in/alex-kim-cs",
-      email: "alex.kim@berkeley.edu"
-    }
+name: "Yehia Yasser Morsie Abdulrahman",
+role: "Student",
+institution: "Alhekma Language School",
+expertise: ["Data Science", "Data Analysis", "ML Building Models"],
+bio: "I'm a 16-year-old student with experience in AI, especially in ML modeling, data analysis, Python. Learned C with Arduino and have multiple AI certificates.",
+image:  "src/pages/yeh.JPG",
+links: {
+github: "https://github.com/YahyaElshazly7
+",
+linkedin: "https://www.linkedin.com/in/yehia-elshazly-a885a5283/
+",
+email: "yehiaelshazly738@gmail.com
+"
+}
+},
+  
+{
+  "name": "Mohammad Emad",
+  "role": "Software Engineer",
+  "institution": "Helwan University",
+  "expertise": [
+    "Spring Boot",
+    "Full-Stack Development",
+    "DevOps"
+  ],
+  "bio": "First-year Computer Engineering student passionate about software engineering, full-stack development. Experienced in backend systems with Spring Boot, exploring DevOps.",
+  "image": "src/pages/meh.JPG",
+  "links": {
+    "github": "https://github.com/MohammadEmad2003",
+    "linkedin": "https://www.linkedin.com/in/mohammademad2003",
+    "email": "memad.20003@gmail.com"
   }
+}
 ];
 
 const acknowledgments = [
